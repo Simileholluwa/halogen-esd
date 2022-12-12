@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Result - Spam Checker
+{% endblock %}
+
+{% block brand %}
+    Spam Detection Result
+{% endblock %}
+
+{% block body %}
+
+    {% if result %}
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent justify-content-center">
+            <li class="breadcrumb-item text-info"><a href="{{ url_for('home') }}">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Result</li>
+        </ol>
+    </nav>
+
+    <div class="table-responsive-md">
+        <table class="table table-hover table-bordered table-dark table-striped table-md">
+        <caption>Prediction of 50 recent emails.</caption>
+        <thead>
+            <tr class="table-primary text-dark">
+                <!-- Your Columns HERE -->
+                <th scope="col">Date</th>
+                <th scope="col">Sender</th>
+                <th scope="col">Subject</th>
+                <th scope="col">Prediction</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            <!-- Your rows inside the table HERE: -->
+            {% for item in result %}
+                <tr>
+                    <td>{{ item.date }}</td>
+                    <td>{{ item.sender }}</td>
+                    <td>{{ item.subject }}</td>
+                    {% if item.prediction == 0 %}
+                        <td style="color: lawngreen">Not spam</td>
+                    {% else %}
+                        <td style="color: red">Spam</td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+    {% else %}
+    <br>
+    <br>
+
+    <div class="text-center">
+        <img src="{{ url_for('static', filename='oops.png') }}" width="300" class="rounded mx-auto img-fluid" alt="nothing" >
+    </div>
+    <h6 class="display-6 pb-3 pt-3 text-center ">There are currently no results to display. Click <a href="{{ url_for ('home') }}" class="text-info">here</a> to return to the homepage and enter the required credentials.</h6>
+
+    <br>
+    <br>
+    {% endif %}
+
+{% endblock %}

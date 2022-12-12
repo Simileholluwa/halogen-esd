@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Page not found - Spam Checker
+{% endblock %}
+
+{% block brand %}
+    Email Spam Detector
+{% endblock %}
+
+{% block body %}
+
+    <br>
+    <br>
+
+    <div class="text-center">
+        <img src="{{ url_for('static', filename='oops.png') }}" width="300" class="rounded mx-auto img-fluid" alt="nothing" >
+    </div>
+    <h6 class="display-6 pb-3 pt-3 text-center "> The page you are looking for does not exist. Click <a href="{{ url_for('home') }}" class="text-info">here</a> to visit the home page.</h6>
+{% endblock %}

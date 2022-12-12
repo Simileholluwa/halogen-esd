@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Home - Spam Checker
+{% endblock %}
+
+{% block brand %}
+    Email Spam Detector
+{% endblock %}
+
+{% block body %}
+    <br>
+    <br>
+
+    <div class="card text-center bg-dark text-bg-dark">
+        <div class="card-header">
+            Check Email Spam
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Enter your Email and Application Password.</h5>
+            <p class="card-text text-muted">Ensure you have generated your application password from Gmail. This is what you will input in the password field and not your regular email password. Please check the instructions below on how to generate your application password in gmail.</p>
+            <div>
+                <form method="POST", class="mb-3 container-fluid col-lg-6">
+                    {{ form.hidden_tag() }}
+                    {{ form.email(class="form-control text-light bg-dark mb-3 border-primary center", placeholder="Email") }}
+                    {{ form.password(class="form-control bg-dark text-light border-primary", placeholder="Application Password") }}
+                    {{ form.submit(class="btn btn-secondary mt-3" ) }}
+                </form>
+            </div>
+        </div>
+        <div class="card-footer">
+            <a href="#" class="card-link" data-toggle="modal" data-target="#myModal">How to generate gmail application password</a>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content bg-dark">
+                    <div class="modal-header">
+                        <h4 class="modal-title text-primary" id="myModalLabel">Generate Gmail Application Password.</h4>
+                        <button type="button" class="close text-light " data-dismiss="modal" aria-label="Close">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <ul class="text-left">
+
+                            <li>Login to Gmail.</li>
+                            <li>Click on <span class="text-info">Manage your Google Account</span> by clicking on the <span class="text-info">profile</span> icon on the top right.</li>
+                            <li>Click on <span class="text-info">Security</span> from the left list.</li>
+                            <li>Click on <span class="text-info">App passwords</span> on the security page <span class="text-info">Signing into Google Section</span>. You will be required to ask enter your google password to log in again.</li>
+                            <li>If the App passwords option is not available, ensure you have 2-step verification turned on and then, repeat the step above.</li>
+                            <li>There will be two dropdowns to select from <span class="text-info">Select app</span> and <span class="text-info">Select device</span>. Select <span class="text-info">Other</span> option for both dropdowns. You will be required to give the name of the app. Give the app a name that you prefer (Ex - Spam Check). If you had previously created some app then they will be shown in the list along with the last date when you last used it. You can delete old apps from here if you are not using them anymore.</li>
+                            <li>Click on <span class="text-info">Generate</span> and a new window will pop up where a temporary password (16 characters) will be displayed.</li>
+                            <li>Save this password to use it for the spam checker. It'll display the password only once hence save it in a safe place otherwise you will need to create a new app password if the password is lost.</li>
+
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Got it!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+{% endblock %}
