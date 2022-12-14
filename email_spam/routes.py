@@ -142,7 +142,7 @@ def home():
                     if len(prediction) == 0:
                         prediction.append(0)
 
-                result.insert(-1, {'date': new_date, 'sender': sender, 'subject': subject, 'prediction': prediction[-1]})
+                    result.insert(-1, {'date': new_date, 'sender': sender, 'subject': subject, 'prediction': prediction[-1]})
                 # close the connection and logout
 
             imap.close()
