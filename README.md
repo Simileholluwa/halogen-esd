@@ -16,7 +16,7 @@
 
 ## Live Preview
 ##### Check out this [link](https://halogen-esd.herokuapp.com) to test the application with your own email
-![](https://github.com/Simileholluwa/halogen-esd/blob/master/email_spam/live_preview.gif)
+![](https://github.com/Simileholluwa/halogen-esd/blob/main/email_spam/live_preview.gif)
 
 ## Project Walkthrough
 * Exploratory Data Analysis (EDA)
