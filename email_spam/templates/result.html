@@ -11,7 +11,17 @@
 {% block body %}
 
     {% if result %}
-    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <br>
+
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        <a href = "#" class = "close" data-dismiss = "alert">
+            &times;
+        </a>
+        <h4 class="alert-heading">Important Notice! </h4>
+        <p>Ensure you delete your generated application password after use. Click <a href="#" class="alert-link" data-toggle="modal" data-target="#delete">here</a> for steps on how to accomplish this.</p>
+    </div>
+
+    <nav style="--bs-breadcrumb-divider: '>' !important;" aria-label="breadcrumb">
         <ol class="breadcrumb bg-transparent justify-content-center">
             <li class="breadcrumb-item text-info"><a href="{{ url_for('home') }}">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page">Result</li>
@@ -46,6 +56,33 @@
             {% endfor %}
         </tbody>
     </table>
+
+        <!-- Delete App Password Modal -->
+        <div class="modal fade" id="delete" tabindex="-1" aria-labelledby="deleteLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content bg-dark">
+                    <div class="modal-header">
+                        <h4 class="modal-title text-primary" id="deleteLabel">Delete Gmail Application Password.</h4>
+                        <button type="button" class="close text-light " data-dismiss="modal" aria-label="Close">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <ul class="text-left">
+
+                            <li>Login to Gmail.</li>
+                            <li>Click on <span class="text-info">Manage your Google Account</span> by clicking on the <span class="text-info">profile</span> icon on the top right.</li>
+                            <li>Click on <span class="text-info">Security</span> from the left list.</li>
+                            <li>Click on <span class="text-info">App passwords</span> on the security page <span class="text-info">Signing into Google Section</span>. You will be required to ask enter your google password to log in again.</li>
+                            <li>Click on the delete icon next to the name of the application password you generated.</li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Got it!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 
     <br>
